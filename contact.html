@@ -1,26 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mark Kim | Contact</title>
-</head>
-<body>
+  </head>
+  <body>
     <header id="top">
-        <h4>Mark Kim</h4>
-        <p>Software Engineer</p>
-        <nav>
-          <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./projects.html">Projects</a></li>
-            <li><a href="./aboutMe.html">About Me</a></li>
-            <li><a href="./bio.html">Biography</a></li>
-            <li><a href="#top">Contact Me</a></li>
-          </ul>
-        </nav>
-      </header>
-      <main>
+      <h4>Mark Kim</h4>
+      <p>Software Engineer</p>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./projects.html">Projects</a></li>
+          <li><a href="./aboutMe.html">About Me</a></li>
+          <li><a href="./bio.html">Biography</a></li>
+          <li><a href="#top">Contact Me</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+        <table>
+            <tr>
+                <th>Contact Me</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>mark.kimk622@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>641-471-9708</td>
+            </tr>
+            <tr>
+                <td>GitHub</td>
+                <td><a href="https://github.com/MarkKim-Humber">MarkKim-Humber</a></td>
+            </tr>
+            <tr>
+                <td>X</td>
+                <td><a href="https://x.com/kimmarkcodes">@kimmarkcodes</a></td>
+            </tr>
+        </table>
+      <form action="submit" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Name" />
+        <label for="email">Email:</label>
+        <input type="text" name="email" placeholder="Email" />
+        <label for="message"></label>
+        <textarea
+          name="message"
+          placeholder="Leave a message."
+          cols="20"
+          rows="10"
+        ></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </main>
 
-      </main>
-</body>
+    <footer>
+        <ul>
+            <li><a href="mailto:mark.kimk622@gmail.com">Email</a></li>
+            <li><a href="tel:1-641-471-9708">Phone</a></li>
+            <li><a href="https://github.com/MarkKim-Humber">GitHub</a></li>
+        </ul>
+        <p>Created by Mark Kim @ Humber College 2024</p>
+    </footer>
+  </body>
 </html>
