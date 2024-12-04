@@ -327,16 +327,12 @@ header a:visited {
 }
 
 /* Home page content */
-.homeFirstSection {
-  padding: 50px;
-}
-
 .homeSecondSection {
   background-color: #303741;
   color: #fbfbfb;
 }
 
-.homeSecondSection .homeSectionFlex {
+.homeSectionFlex {
   display: flex;
   justify-content: space-between;
 }
@@ -386,10 +382,6 @@ footer p {
 }
 
 /* Projects Page */
-.projectsMain {
-  margin-top: 5%;
-}
-
 .projectsMain li {
   display: flex;
   padding: 3%;
@@ -431,7 +423,7 @@ footer p {
 .aboutSkills table tr th {
   text-align: left;
   font-size: 2rem;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #303741;
 }
 
 .aboutSkills table tr td {
@@ -452,11 +444,6 @@ footer p {
   justify-content: space-between;
   margin-bottom: 2%;
   border-bottom: 2px solid #fbfbfb;
-}
-
-.slideshowContainer {
-  position: relative;
-  margin: 0 auto;
 }
 
 .buttons {
@@ -488,14 +475,14 @@ footer p {
   color: #16cdb5;
 }
 
+.slide {
+  display: none;
+}
+
 .slides img {
   width: 300px;
   height: fit-content;
   border: 5px solid #16cdb5;
-}
-
-.slide {
-  display: none;
 }
 
 .mainSlide {
@@ -545,6 +532,7 @@ footer p {
 .formSection {
   padding-top: 25px;
 }
+
 .contactForm label {
   padding-top: 2%;
   margin-left: 10px;
