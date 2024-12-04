@@ -10,7 +10,7 @@
   <body>
     <header id="top">
       <div class="wrapper navBar">
-        <h4>Projects</h4>
+        <h4>Contact Me</h4>
         <nav>
           <ul>
             <li id="navLi"><a href="./index.html">Home</a></li>
@@ -23,17 +23,13 @@
     </header>
 
     <main>
-      <section class="contact" id="contact">
+      <section class="contactSection">
         <div class="wrapper">
           <h2>Contact Me</h2>
-          <ul>
+          <ul class="contactFlex">
             <li>
               <p>Email</p>
               <a href="mailto:mark.kimk622@gmail.com">mark.kimk622@gmail.com</a>
-            </li>
-            <li>
-              <p>Phone</p>
-              <a href="tel:647-471-9708">647-471-9708</a>
             </li>
             <li>
               <p>GitHub</p>
@@ -44,28 +40,31 @@
               <a href="https://x.com/kimmarkcodes">@kimmarkcodes</a>
             </li>
           </ul>
-          <div class="contactFormFlex">
-            <form
-              id="myForm"
-              action="https://formspree.io/f/meoqvdgr"
-              method="POST"
-              class="contactForm"
-            >
-              <label>Your Name:</label>
-              <input type="text" name="_name" placeholder="Name" />
-              <label>Your email:</label>
-              <input type="email" name="_replyto" placeholder="Email" />
-              <label>Your message:</label>
-              <textarea
-                name="message"
-                placeholder="Message"
-                cols="30"
-                rows="10"
-              ></textarea>
-              <button type="submit">Send Message</button>
-              <p id="myFormStatus"></p>
-            </form>
-          </div>
+        </div>
+      </section>
+
+      <section class="formSection">
+        <div class="wrapper">
+          <form
+            id="myForm"
+            action="https://formspree.io/f/meoqvdgr"
+            method="POST"
+            class="contactForm"
+          >
+            <label>Name:</label>
+            <input type="text" name="_name" placeholder="Name" />
+            <label>Email:</label>
+            <input type="email" name="_replyto" placeholder="Email" />
+            <label>Message:</label>
+            <textarea
+              name="message"
+              placeholder="Message"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <button type="submit">Send Message</button>
+            <p id="myFormStatus"></p>
+          </form>
         </div>
       </section>
     </main>
@@ -81,5 +80,43 @@
     </footer>
 
     <script src="./script.js"></script>
+    <script>
+      // Form submission - sending data to https://formspree.io/
+      const form = document.getElementById("myForm");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const status = document.getElementById("myFormStatus");
+        const data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.innerHTML = "Thank you! I will be in touch soon 😃";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.innerHTML = data["errors"]
+                    .map((error) => error["message"])
+                    .join(", ");
+                } else {
+                  status.innerHTML =
+                    "Oops! There was a problem submitting your form";
+                }
+              });
+            }
+          })
+          .catch(() => {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          });
+      });
+    </script>
   </body>
 </html>

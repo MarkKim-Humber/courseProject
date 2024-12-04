@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mark Kim | About Me</title>
     <link rel="stylesheet" href="./styles/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/2ce9970fee.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -25,69 +29,76 @@
     <main>
       <section class="aboutSkills">
         <div class="wrapper aboutTableFlex">
-          <table border="0">
+          <table>
             <tr>
               <th colspan="2">Skills</th>
             </tr>
             <tr>
-              <td>HTML</td>
-              <td>CSS</td>
+              <td><i class="fa-brands fa-html5"></i> HTML</td>
+              <td><i class="fa-brands fa-css3-alt"></i> CSS</td>
             </tr>
             <tr>
-              <td>JavaScript</td>
-              <td>React</td>
+              <td><i class="fa-brands fa-js"></i> JavaScript</td>
+              <td><i class="fa-brands fa-react"></i> React</td>
             </tr>
             <tr>
-              <td>SQL Database Modeling</td>
-              <td>Linux</td>
+              <td>
+                <i class="fa-solid fa-database"></i> SQL Database Modeling
+              </td>
+              <td><i class="fa-brands fa-linux"></i> Linux</td>
             </tr>
             <tr>
-              <td>Java</td>
-              <td>Python</td>
-            </tr>
-            <tr>
-              <td>Firebase</td>
-              <td>API Integration</td>
+              <td><i class="fa-brands fa-java"></i> Java</td>
+              <td><i class="fa-brands fa-python"></i> Python</td>
             </tr>
           </table>
         </div>
       </section>
 
-      <section>
-        <h2>Hobbies</h2>
-        <div class="buttons">
-          <p class="prev navBtn">&#60</p>
-          <p class="next navBtn">&#62</p>
-        </div>
-        <div class="slideshowContainer">
-          <ul class="slides">
-            <li class="slide">
-              <img
-                src="./styles/images/20240426_163543.jpg"
-                alt="image of an Yamaha FZ-6 on my driveway"
-              />
-              <p>
-                My Yamaha FZ-6 that I spend most of my weekends with cruising
-                through the city.
-              </p>
-            </li>
-            <li class="slide">
-              <img
-                src="./styles/images/kordan_1332224519_2000x1125.jpg"
-                alt="Nelly Korda at the Paris Olympics"
-              />
-              <p>
-                Started learning golf this year and I am learning mostly by
-                reviewing Nelly Korda's performances on the LPGA.
-              </p>
-            </li>
-            <li class="slide">
-              <img src="./styles/images/mclaren-race-OG.og.png" alt="" />
-              <p>
-                F1 is my favourite sport to watch and I'm a proud McLaren fan.
-              </p>
-            </li>
-          </ul>
+      <section class="hobbiesSection">
+        <div class="wrapper">
+          <div class="hobbiesFlex">
+            <h2 class="hobbiesTitle">Hobbies</h2>
+            <div class="buttons">
+              <p class="prev navBtn" id="prev">&lt;</p>
+              <p class="next navBtn" id="next">&gt;</p>
+            </div>
+          </div>
+
+          <div class="slideshowContainer">
+            <ul class="slides">
+              <li class="slide">
+                <img
+                  src="./styles/images/20240426_163543.jpg"
+                  alt="image of an Yamaha FZ-6 on my driveway"
+                />
+                <p>
+                  My Yamaha FZ-6 that I spend most of my weekends with cruising
+                  through the city.
+                </p>
+              </li>
+              <li class="slide">
+                <img
+                  src="./styles/images/kordan_1332224519_2000x1125.jpg"
+                  alt="Nelly Korda at the Paris Olympics"
+                />
+                <p>
+                  Started learning golf this year and I am a fan of Nelly Korda.
+                  I have been learning a lot by watching her performance on the
+                  LPGA Tour.
+                </p>
+              </li>
+              <li class="slide">
+                <img
+                  src="./styles/images/op-first-podium-article-cover-square.jpg"
+                  alt=""
+                />
+                <p>
+                  F1 is my favourite sport to watch and I'm a proud McLaren fan.
+                </p>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>
@@ -103,5 +114,47 @@
     </footer>
 
     <script src="./script.js"></script>
+    <script>
+      // Projects Slideshow
+      // Storing HTML elements into variables
+      const slides = document.querySelectorAll(".slide");
+      const prevButton = document.getElementById("prev");
+      const nextButton = document.getElementById("next");
+      let currentSlideIndex = 0;
+
+      // Function to show the current slide
+      const showSlide = (index) => {
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.className = "mainSlide";
+          } else {
+            slide.className = "slide";
+          }
+        });
+      };
+
+      // Event listener for the next button
+      nextButton.addEventListener("click", () => {
+        currentSlideIndex++;
+        // Wrapping to the first slide when going back on index = max
+        if (currentSlideIndex >= slides.length) {
+          currentSlideIndex = 0;
+        }
+        showSlide(currentSlideIndex);
+      });
+
+      // Event listener for the previous button
+      prevButton.addEventListener("click", () => {
+        currentSlideIndex--;
+        // Wrapping to the last slide when going back on index = 0
+        if (currentSlideIndex < 0) {
+          currentSlideIndex = slides.length - 1;
+        }
+        showSlide(currentSlideIndex);
+      });
+
+      // Initialize the slideshow
+      showSlide(currentSlideIndex);
+    </script>
   </body>
 </html>
