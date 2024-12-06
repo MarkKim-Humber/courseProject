@@ -131,7 +131,7 @@
       const nextButton = document.getElementById("next");
       let currentSlideIndex = 0;
 
-      // Function to show the current slide
+      // Displaying slide
       const showSlide = (index) => {
         slides.forEach((slide, i) => {
           if (i === index) {
@@ -142,7 +142,7 @@
         });
       };
 
-      // Event listener for the next button
+      // Increasing the index number when "next" is clicked
       nextButton.addEventListener("click", () => {
         currentSlideIndex++;
         // Wrapping to the first slide when going back on index = max
@@ -152,7 +152,7 @@
         showSlide(currentSlideIndex);
       });
 
-      // Event listener for the previous button
+      // Decreasing the index number when "prev" is clicked
       prevButton.addEventListener("click", () => {
         currentSlideIndex--;
         // Wrapping to the last slide when going back on index = 0

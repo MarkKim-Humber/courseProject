@@ -51,13 +51,13 @@
             method="POST"
             class="contactForm"
           >
-            <label>Name:</label>
+            <label for="_name">Name:</label>
             <input type="text" name="_name" placeholder="Name" />
-            <label>Email:</label>
+            <label for="_replyto">Email:</label>
             <input type="email" name="_replyto" placeholder="Email" />
-            <label>Message:</label>
+            <label for="_message">Message:</label>
             <textarea
-              name="message"
+              name="_message"
               placeholder="Message"
               cols="30"
               rows="10"
@@ -85,10 +85,14 @@
       const form = document.getElementById("myForm");
 
       form.addEventListener("submit", function (event) {
+        // Prevent page from refreshing on submit
         event.preventDefault();
 
+        // Storing HTML elements into varaibles
         const status = document.getElementById("myFormStatus");
         const data = new FormData(event.target);
+
+        // Using the fetch() function to send data to FormSpree.io
         fetch(event.target.action, {
           method: form.method,
           body: data,
@@ -98,6 +102,7 @@
         })
           .then((response) => {
             if (response.ok) {
+              // Displaying message once form is submitted
               status.innerHTML = "Thank you! I will be in touch soon 😃";
               form.reset();
             } else {
@@ -108,12 +113,14 @@
                     .join(", ");
                 } else {
                   status.innerHTML =
+                    // Displaying error message if there is any error with the form
                     "Oops! There was a problem submitting your form";
                 }
               });
             }
           })
           .catch(() => {
+            // Displaying error message if there is any error with the form
             status.innerHTML = "Oops! There was a problem submitting your form";
           });
       });
