@@ -3,67 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mark Kim | Projects1</title>
+    <title>Mark Kim | Software Engineer</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
+
   <body>
     <header id="top">
-      <h4>Mark Kim</h4>
-      <p>Software Engineer</p>
-      <nav>
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="#top">Projects</a></li>
-          <li><a href="./aboutMe.html">About Me</a></li>
-          <li><a href="./bio.html">Biography</a></li>
-          <li><a href="./contact.html">Contact Me</a></li>
-        </ul>
-      </nav>
+      <div class="wrapper navBar">
+        <h4>Projects</h4>
+        <nav>
+          <ul>
+            <li id="navLi"><a href="./index.html">Home</a></li>
+            <li id="navLi"><a href="#top">Projects</a></li>
+            <li id="navLi"><a href="./aboutMe.html">About Me</a></li>
+            <li id="navLi"><a href="./contact.html">Contact Me</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <main>
+    <main class="projectsMain">
       <section>
-        <h2>Projects</h2>
-        <ul>
-          <li>
-            <h4>Project 1</h4>
-            <a href="">Live Site</a>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt ex
-              enim reiciendis aut placeat iste assumenda minus incidunt itaque!
-              Nam sapiente aliquid deserunt. Aliquam ab praesentium recusandae
-              itaque alias quae!
-            </p>
-          </li>
-          <li>
-            <h4>Project 2</h4>
-            <a href="">Live Site</a>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              architecto odit quis! Magni eum perspiciatis ab harum nemo facere
-              similique commodi asperiores incidunt? Ullam necessitatibus magnam
-              nesciunt iusto vel debitis?
-            </p>
-          </li>
-          <li>
-            <h4>Project 3</h4>
-            <a href="">Live Site</a>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              architecto odit quis! Magni eum perspiciatis ab harum nemo facere
-              similique commodi asperiores incidunt? Ullam necessitatibus magnam
-              nesciunt iusto vel debitis?
-            </p>
-          </li>
-        </ul>
+        <div class="wrapper">
+          <ul class="projectsUl">
+            <li class="projectsLi">
+              <img
+                src="./styles/images/dailyDadJokes.png"
+                alt="Screen capture of the Daily Dad Jokes website"
+              />
+              <div>
+                <h5>
+                  <a href="https://daily-dad-jokes.netlify.app/" target="_blank"
+                    >Daily Dad Jokes</a
+                  >
+                </h5>
+                <p>
+                  This project was my first group collaboration with
+                  <a href="http://tiffanyshimizu.com/" target="_blank"
+                    >Tiffany Shimizu</a
+                  >,
+                  <a href="http://kevinweber.ca/" target="_blank">Kevin Weber</a
+                  >,
+                  <a href="http://felicianemet.com/" target="_blank"
+                    >Felicia Nemet</a
+                  >, and myself. This website incorporates 2 API calls (from
+                  <a href="https://icanhazdadjoke.com/api" target="_blank"
+                    >icanhazdadjoke.com</a
+                  >
+                  and
+                  <a href="https://unsplash.com/documentation" target="_blank"
+                    >unsplash.com</a
+                  >) to create a slideshow of images accompanied with Dad Jokes.
+                </p>
+              </div>
+            </li>
+            <li>
+              <img
+                src="./styles/images/movieFinder.PNG"
+                alt="Screen capture of the MovieFinder website"
+              />
+              <div>
+                <h5>MovieFinder</h5>
+                <p>
+                  This application uses the
+                  <a
+                    href="https://developer.themoviedb.org/docs/getting-started"
+                    target="_blank"
+                    >TMDB</a
+                  >
+                  API to find trending movies and search for titles. This is
+                  completed by using the fetch() function to retrieve data and
+                  event handlers in JavaScript to load the data accordingly.
+                </p>
+              </div>
+            </li>
+            <li>
+              <img
+                src="https://placecats.com/300/200"
+                alt="Placeholder image"
+              />
+              <div>
+                <h5>Placeholder Project</h5>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Doloremque, porro. Molestiae ad laudantium veniam asperiores
+                  quisquam sunt animi delectus quam at harum possimus tempora
+                  corrupti, nihil maxime excepturi nobis placeat!
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
 
     <footer>
-      <ul>
-        <li><a href="mailto:mark.kimk622@gmail.com">Email</a></li>
-        <li><a href="https://github.com/MarkKim-Humber">GitHub</a></li>
-      </ul>
-      <p>Created by Mark Kim @ Humber College 2024</p>
+      <div class="wrapper">
+        <ul>
+          <li><a href="mailto:mark.kimk622@gmail.com">Email</a></li>
+          <li>
+            <a href="https://github.com/MarkKim-Humber" target="_blank"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+        <p>Created by Mark Kim @ Humber College 2024</p>
+      </div>
     </footer>
+
+    <script src="./script.js"></script>
   </body>
 </html>

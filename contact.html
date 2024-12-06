@@ -4,69 +4,126 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mark Kim | Contact</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
+
   <body>
     <header id="top">
-      <h4>Mark Kim</h4>
-      <p>Software Engineer</p>
-      <nav>
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./projects.html">Projects</a></li>
-          <li><a href="./aboutMe.html">About Me</a></li>
-          <li><a href="./bio.html">Biography</a></li>
-          <li><a href="#top">Contact Me</a></li>
-        </ul>
-      </nav>
+      <div class="wrapper navBar">
+        <h4>Contact Me</h4>
+        <nav>
+          <ul>
+            <li id="navLi"><a href="./index.html">Home</a></li>
+            <li id="navLi"><a href="./projects.html">Projects</a></li>
+            <li id="navLi"><a href="./aboutMe.html">About Me</a></li>
+            <li id="navLi"><a href="#top">Contact Me</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <section>
-        <h2>Contact Me</h2>
-        <ul>
-          <li>
-            <p>Email</p>
-            <a href="mailto:mark.kimk622@gmail.com">mark.kimk622@gmail.com</a>
-          </li>
-          <li>
-            <p>Phone</p>
-            <a href="tel:647-471-9708">647-471-9708</a>
-          </li>
-          <li>
-            <p>GitHub</p>
-            <a href="https://github.com/MarkKim-Humber">MarkKim-Humber</a>
-          </li>
-          <li>
-            <p>X</p>
-            <a href="https://x.com/kimmarkcodes">@kimmarkcodes</a>
-          </li>
-        </ul>
+      <section class="contactSection">
+        <div class="wrapper">
+          <h2>Contact Me</h2>
+          <ul class="contactFlex">
+            <li>
+              <p>Email</p>
+              <a href="mailto:mark.kimk622@gmail.com">mark.kimk622@gmail.com</a>
+            </li>
+            <li>
+              <p>GitHub</p>
+              <a href="https://github.com/MarkKim-Humber">MarkKim-Humber</a>
+            </li>
+            <li>
+              <p>X</p>
+              <a href="https://x.com/kimmarkcodes">@kimmarkcodes</a>
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <section>
-        <form action="submit" method="POST">
-          <label for="name">Name:</label>
-          <input type="text" name="name" placeholder="Name" />
-          <label for="email">Email:</label>
-          <input type="text" name="email" placeholder="Email" />
-          <label for="message"></label>
-          <textarea
-            name="message"
-            placeholder="Leave a message."
-            cols="20"
-            rows="10"
-          ></textarea>
-          <button type="submit">Send Message</button>
-        </form>
+      <section class="formSection">
+        <div class="wrapper">
+          <form
+            id="myForm"
+            action="https://formspree.io/f/meoqvdgr"
+            method="POST"
+            class="contactForm"
+          >
+            <label for="_name">Name:</label>
+            <input type="text" name="_name" placeholder="Name" />
+            <label for="_replyto">Email:</label>
+            <input type="email" name="_replyto" placeholder="Email" />
+            <label for="_message">Message:</label>
+            <textarea
+              name="_message"
+              placeholder="Message"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <button type="submit">Send Message</button>
+            <p id="myFormStatus"></p>
+          </form>
+        </div>
       </section>
     </main>
 
     <footer>
-      <ul>
-        <li><a href="mailto:mark.kimk622@gmail.com">Email</a></li>
-        <li><a href="https://github.com/MarkKim-Humber">GitHub</a></li>
-      </ul>
-      <p>Created by Mark Kim @ Humber College 2024</p>
+      <div class="wrapper">
+        <ul>
+          <li><a href="mailto:mark.kimk622@gmail.com">Email</a></li>
+          <li><a href="https://github.com/MarkKim-Humber">GitHub</a></li>
+        </ul>
+        <p>Created by Mark Kim @ Humber College 2024</p>
+      </div>
     </footer>
+
+    <script src="./script.js"></script>
+    <script>
+      // Form submission - sending data to https://formspree.io/
+      const form = document.getElementById("myForm");
+
+      form.addEventListener("submit", function (event) {
+        // Prevent page from refreshing on submit
+        event.preventDefault();
+
+        // Storing HTML elements into varaibles
+        const status = document.getElementById("myFormStatus");
+        const data = new FormData(event.target);
+
+        // Using the fetch() function to send data to FormSpree.io
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              // Displaying message once form is submitted
+              status.innerHTML = "Thank you! I will be in touch soon 😃";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.innerHTML = data["errors"]
+                    .map((error) => error["message"])
+                    .join(", ");
+                } else {
+                  status.innerHTML =
+                    // Displaying error message if there is any error with the form
+                    "Oops! There was a problem submitting your form";
+                }
+              });
+            }
+          })
+          .catch(() => {
+            // Displaying error message if there is any error with the form
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          });
+      });
+    </script>
   </body>
 </html>

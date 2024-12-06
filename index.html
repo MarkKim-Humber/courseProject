@@ -4,48 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mark Kim | Software Engineer</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
+
   <body>
-    <header id="top">
-      <h4>Mark Kim</h4>
-      <p>Software Engineer</p>
-      <nav>
-        <ul>
-          <li><a href="#top">Home</a></li>
-          <li><a href="./projects.html">Projects</a></li>
-          <li><a href="./aboutMe.html">About Me</a></li>
-          <li><a href="./bio.html">Biography</a></li>
-          <li><a href="./contact.html">Contact Me</a></li>
-        </ul>
-      </nav>
+    <header id="top" class="homeHeader">
+      <div class="wrapper navBar">
+        <h4>Home</h4>
+        <nav>
+          <ul>
+            <li id="navLi"><a href="#top">Home</a></li>
+            <li id="navLi"><a href="./projects.html">Projects</a></li>
+            <li id="navLi"><a href="./aboutMe.html">About Me</a></li>
+            <li id="navLi"><a href="./contact.html">Contact Me</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wrapper headerTitle">
+        <h1>Mark Kim</h1>
+        <p>Software Engineer</p>
+      </div>
     </header>
 
-    <main>
+    <main class="homeMain">
       <section>
-        <p>
-          I am a Software Engineer that changed career paths from being a
-          Freelance Clarinetist. My skills as a Software Engineer along with a
-          variety of skills I have learned as a Clarinetist allows me to be
-          flexbile and adapt to a variety of situations with ease.
-        </p>
-        <img
-          src="./images/1646684305528.jpg"
-          alt="After a musical performance with my colleagues"
-        />
+        <div class="wrapper">
+          <p>
+            I am a Software Engineer that changed career paths from being a
+            Freelance Clarinetist. My skills as a Software Engineer along with a
+            variety of skills I have learned as a Clarinetist allows me to be
+            flexbile and adapt to a variety of situations with ease.
+          </p>
+        </div>
       </section>
 
-      <section>
-        <img src="https://picsum.photos/200/300" alt="placeholder" />
-        <p>A project that I would like to highlight will be placed here</p>
+      <section class="homeSecondSection">
+        <div class="wrapper homeSectionFlex">
+          <img src="./styles/images/dailyDadJokes.png" alt="screen capture of the Daily Dad Jokes website" />
+          <p>
+            This project was my first group collaboration with
+            <a href="http://tiffanyshimizu.com/">Tiffany Shimizu</a>
+            <a href="http://kevinweber.ca/">Kevin Weber</a>,
+            <a href="http://felicianemet.com/">Felicia Nemet</a>, and myself. This
+            website incorporates 2 API calls (from
+            <a href="https://icanhazdadjoke.com/api">icanhazdadjoke.com</a> and
+            <a href="https://unsplash.com/documentation">unsplash.com</a>) to
+            create a slideshow of images accompanied with Dad Jokes.
+          </p>
+        </div>
       </section>
     </main>
 
     <footer>
+      <div class="wrapper">
         <ul>
-            <li><a href="mailto:mark.kimk622@gmail.com">Email</a></li>
-            <li><a href="https://github.com/MarkKim-Humber">GitHub</a></li>
+          <li><a href="mailto:mark.kimk622@gmail.com">Email</a></li>
+          <li><a href="https://github.com/MarkKim-Humber">GitHub</a></li>
         </ul>
         <p>Created by Mark Kim @ Humber College 2024</p>
+      </div>
     </footer>
+
+    <script src="./script.js"></script>
   </body>
 </html>
